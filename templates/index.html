@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My Flask App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="dash">
+        {% for plant in plants %}
+        <div class="plant-card">
+            <img src="{{ plant.image_link }}">
+
+            <div class="plant-data">
+                <div class="realtime-data">
+                    <div class="moisture-level">
+                        <i class="fa-solid fa-droplet"></i> 23%
+                    </div>
+                </div>
+
+                <div class="plant-info">
+                    <h2>{{ plant.name }}</h2>
+                    <p>Plant species: {{ plant.type }}</p>
+                </div>
+            </div>
+
+            <div class="plant-edit">
+                <button class="plant-edit-button" onclick="editPlant(this)" data-plant-id="{{ plant.id }}">
+                    <i class="fas fa-edit"></i>
+                </button>
+
+                <button class="plant-delete-button" onclick="deletePlant(this)" data-plant-id="{{ plant.id }}">
+                    <i class="fas fa-trash"></i>
+                </button>
+            </div>
+
+            <div class="card-edit-overlay hidden">
+                <form action="javascript:void(0)" method="POST" class="edit-form" enctype="multipart/form-data"
+                    id="{{plant.id}}">
+                    <div class="form-group">
+                        <label for="PlantName">Plant name </label>
+                        <input type="text" name="name" id="PlantName" value="{{ plant.name }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="PlantType">Species </label>
+                        <input type="text" name="type" id="PlantType" value="{{ plant.type }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="PlantImage">Plant image </label>
+                        <input type="file" name="image" id="PlantImage" accept="image/*">
+                    </div>
+                    <button class="btn" type="submit" onclick="sendEditPlantData(this)"
+                        data-plant-id="{{ plant.id }}">Save</button>
+                </form>
+                <button class="close-edit" onclick="closeEditPlant(this)" data-plant-id="{{ plant.id }}">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        </div>
+
+        {% endfor %}
+
+        <div class="add-plant">
+            <div id="add-plant-text">Add</div>
+        </div>
+
+    </div>
+
+    <div class="add-tray">
+        <form action="javascript:void(0)" method="POST" id="add-form" class="" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="PlantName">Plant name </label>
+                <input type="text" name="name" id="PlantName">
+            </div>
+            <div class="form-group">
+                <label for="PlantType">Species </label>
+                <input type="text" name="type" id="PlantType">
+            </div>
+            <div class="form-group">
+                <label for="PlantImage">Plant image </label>
+                <input type="file" name="image" id="PlantImage" accept="image/*">
+            </div>
+
+            <button class="btn" type="submit" onclick=""><i class="fas fa-plus"></i></button>
+        </form>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+
+</html>

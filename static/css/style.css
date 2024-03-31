@@ -1,0 +1,464 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+    /* set primary, secondary and accent colors */
+    --primary: #AFBC88;
+    --secondary: #254441;
+    --accent: #405a57;
+    --accent-light: #506e6b;
+    --accent-varient: #628555;
+
+    --shadow-primary: #254441;
+    --shadow-secondary: #ffffff;
+}
+
+body {
+    font-family: Arial, sans-serif;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: var(--primary);
+}
+
+.dash {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--secondary);
+    padding: 1.5rem;
+    /* width: 800px; */
+    min-width: 800px;
+    max-width: 1200px;
+    min-height: 500px;
+    max-height: 2000px;
+    padding-bottom: 4rem;
+    overflow: hidden;
+    z-index: 3;
+    border-radius: 15px;
+
+    /* give box shadow with color of shadow-primary at 0.5 opacity */
+    box-shadow: 0 0 10px 5px rgba(37, 68, 65, 0.5);
+    flex-wrap: wrap;
+}
+
+.add-plant {
+    position: absolute;
+    bottom: -5rem;
+    right: -5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10rem;
+    height: 10rem;
+    background-color: var(--secondary);
+    color: var(--accent-varient);
+    font-size: 1rem;
+    font-weight: bold;
+    padding: .5rem;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid var(--accent-varient);
+    transition: all .8s ease;
+}
+
+.add-plant:hover {
+    /* scale button in width and height by 20% */
+    background-color: var(--accent-varient);
+    color: var(--secondary);
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#add-plant-text {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 1.8rem;
+    top: 2.3rem;
+}
+
+
+
+.hidden {
+    display: none !important;
+}
+
+
+.plant-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    position: relative;
+    height: 550px;
+    max-height: 2000px;
+    min-width: 250px;
+    width: 250px;
+    background-color: var(--accent);
+    border-radius: 10px;
+    margin: 10px;
+    /* padding: 5px; */
+    transform: all .1s;
+    overflow: hidden;
+    padding-bottom: .5rem;
+    overflow: hidden;
+    padding-bottom: 4rem;
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.0);
+    transition: all .5s ease;
+}
+
+.plant-card:hover {
+    /* box-shadow: 0 0 0px 2px var(--accent-light); */
+    /* box-shadow: ; */
+    /* add half transparant black shadow */
+    box-shadow: 0px 0px 8px 8px rgba(0, 0, 0, 0.2);
+    /* border: 1px solid var(--accent-light); */
+    /* its not transparent */
+
+    /* box-shadow: #628555 0px 0px 5px 2px; */
+}
+
+.plant-data {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    margin-top: auto;
+    width: 120%;
+    /* height: 4rem; */
+    /* background-color: #628555; */
+    /* border-top: #628555 2px solid; */
+}
+
+.realtime-data {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 4rem;
+    /* background-color: #AFBC88; */
+    color: var(--accent-varient);
+}
+
+.moisture-level {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--);
+}
+
+.plant-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 120%;
+    height: 4rem;
+    background-color: var(--accent-varient);
+    /* margin-bottom: 2rem; */
+    color: var(--secondary);
+}
+
+
+
+.plant-card img {
+    /* margin: .5rem; */
+    /* min-width: 100px;
+    min-height: 250px; */
+    /* border-radius: 10px; */
+    /* margin: 10px; */
+    object-fit: fill;
+    max-height: 350px;
+    /* max-width: 230px; */
+    /* margin: .5rem; */
+    border-radius: 5px;
+}
+
+.plant-card:hover .plant-edit {
+    opacity: 1;
+    animation: slideIn .5s forwards;
+}
+
+
+.plant-edit {
+    /* margin-top: 2rem; */
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    opacity: 0;
+    transform: all .5s;
+    gap: 1rem;
+    /* margin-bottom: 3rem; */
+    bottom: 1rem;
+}
+
+.plant-edit-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    border: 2px dotted var(--primary);
+    background-color: transparent;
+    transition: all .3s ease;
+    transform: scale(1.0);
+    color: var(--primary);
+}
+
+.plant-delete-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    border: 2px dotted var(--primary);
+    background-color: transparent;
+    transition: all .3s ease;
+    transform: scale(1.0);
+    color: var(--primary);
+}
+
+.plant-edit .plant-edit-button:hover {
+    cursor: pointer;
+    /* scale button in width and height by 20% */
+    transform: scale(1.2);
+}
+
+.plant-edit .plant-delete-button:hover {
+    cursor: pointer;
+    /* scale button in width and height by 20% */
+    transform: scale(1.2);
+}
+
+.card-edit-overlay {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #7da170;
+    width: 100%;
+    height: 100%;
+    z-index: 12;
+    /* top: 0px; */
+    /* animation: overlaySlideIn .5s forwards; */
+    animation-duration: .5s;
+    animation-timing-function: ease;
+    padding: 2rem;
+}
+
+.card-edit-overlay .edit-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    gap: 2rem;
+}
+
+.card-edit-overlay .edit-form label {
+    /* font-size: 1.5rem; */
+    font-weight: bold;
+    color: var(--primary);
+    background-color: var(--secondary);
+}
+
+.card-edit-overlay .edit-form input {
+    background: rgb(75, 75, 75);
+    color: rgb(255, 255, 255);
+    /* font-weight: bold; */
+    border: 1px solid var(--secondary);
+    border-radius: 10px;
+    padding: .5rem;
+    width: 100%;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-edit-overlay .edit-form input:focus {
+    outline: 2px solid var(--secondary);
+}
+
+.card-edit-overlay .edit-form button {
+    background-color: var(--secondary);
+    color: white;
+    border: unset;
+    padding: .5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 10px;
+    margin-top: auto;
+}
+
+.card-edit-overlay .close-edit {
+    position: absolute;
+    top: .5rem;
+    right: .5rem;
+    color: var(--secondary);
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* padding: .5rem; */
+    font-size: 1.5rem;
+    cursor: pointer;
+    border-radius: 50%;
+    border: 2px dotted var(--secondary);
+    width: 2rem;
+    height: 2rem;
+}
+
+
+.add-tray {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #628555;
+    padding: .5rem;
+    padding-right: 6rem;
+    width: 700px;
+    height: 6rem;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    z-index: 1;
+    overflow: hidden;
+    transform: translateY(-100%);
+    transition: transform 1s ease;
+}
+
+#add-form {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding-top: 1rem;
+}
+
+
+.form-group {
+    position: relative;
+    /* border: 2px solid; */
+    margin: 10px;
+    /* border-radius: 15px; */
+    /* margin-top: 20px; */
+}
+
+.form-group>label {
+    position: absolute;
+    top: -1.2rem;
+    left: 10px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background: #fff;
+    font-size: .8rem;
+    max-height: 1.5rem;
+    max-width: auto;
+    /* border: unset; */
+}
+
+.form-group>input {
+    background: rgb(75, 75, 75);
+    color: rgb(255, 255, 255);
+    /* font-weight: bold; */
+    border: 1px solid #ffffff;
+    border-radius: 10px;
+    padding: .5rem;
+    width: 100%;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-group>input#PlantImage {
+    padding-top: 12px;
+}
+
+.form-group>input:focus {
+    outline: 2px solid #ffffff;
+}
+
+.add-tray .btn {
+    position: absolute;
+    right: 0rem;
+    top: 0rem;
+    background-color: var(--accent);
+    color: white;
+    border: unset;
+    /* border-radius: 10px; */
+    padding: .5rem;
+    font-size: .8rem;
+    font-weight: bold;
+    cursor: pointer;
+    height: 6rem;
+
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(50%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.overlaySlideIn {
+    animation: overlaySlideIn .5s forwards;
+}
+
+.overlaySlideOut {
+    animation: overlaySlideOut .5s forwards;
+}
+
+@keyframes overlaySlideIn {
+    from {
+        transform: translateX(100%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes overlaySlideOut {
+    from {
+        transform: translateX(0%);
+    }
+
+    to {
+        transform: translateX(100%);
+    }
+}
+
+@keyframes slideTray {
+    0% {
+        transform: translateY(-50%);
+        opacity: 0;
+    }
+
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}

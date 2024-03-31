@@ -1,0 +1,5 @@
+{
+  "watering_interval_seconds": 3600,
+  "light_intensity_threshold": 300,
+  "humidity_threshold_percent": 50
+}
