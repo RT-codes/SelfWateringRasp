@@ -14,6 +14,9 @@ A simple Flask application to track and update plant moisture levels.
 - Install the required dependencies: `pip install -r requirements.txt`
 - Start the application: `flask run`
 
+![showcase](https://github.com/RT-codes/SelfWateringRasp/blob/main/firefox_B6IXk1S5Kt.gif)
+
+
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a pull request.
