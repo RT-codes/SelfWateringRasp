@@ -3,7 +3,7 @@
     margin: 0;
     padding: 0;
 
-    /* set primary, secondary and accent colors */
+
     --primary: #AFBC88;
     --secondary: #254441;
     --accent: #405a57;
@@ -41,8 +41,6 @@ body {
     overflow: hidden;
     z-index: 3;
     border-radius: 15px;
-
-    /* give box shadow with color of shadow-primary at 0.5 opacity */
     box-shadow: 0 0 10px 5px rgba(37, 68, 65, 0.5);
     flex-wrap: wrap;
 }
@@ -68,7 +66,6 @@ body {
 }
 
 .add-plant:hover {
-    /* scale button in width and height by 20% */
     background-color: var(--accent-varient);
     color: var(--secondary);
     text-decoration: underline;
@@ -115,14 +112,7 @@ body {
 }
 
 .plant-card:hover {
-    /* box-shadow: 0 0 0px 2px var(--accent-light); */
-    /* box-shadow: ; */
-    /* add half transparant black shadow */
     box-shadow: 0px 0px 8px 8px rgba(0, 0, 0, 0.2);
-    /* border: 1px solid var(--accent-light); */
-    /* its not transparent */
-
-    /* box-shadow: #628555 0px 0px 5px 2px; */
 }
 
 .plant-data {
@@ -133,9 +123,6 @@ body {
 
     margin-top: auto;
     width: 120%;
-    /* height: 4rem; */
-    /* background-color: #628555; */
-    /* border-top: #628555 2px solid; */
 }
 
 .realtime-data {
@@ -163,22 +150,14 @@ body {
     width: 120%;
     height: 4rem;
     background-color: var(--accent-varient);
-    /* margin-bottom: 2rem; */
     color: var(--secondary);
 }
 
 
 
 .plant-card img {
-    /* margin: .5rem; */
-    /* min-width: 100px;
-    min-height: 250px; */
-    /* border-radius: 10px; */
-    /* margin: 10px; */
     object-fit: fill;
     max-height: 350px;
-    /* max-width: 230px; */
-    /* margin: .5rem; */
     border-radius: 5px;
 }
 
@@ -189,7 +168,6 @@ body {
 
 
 .plant-edit {
-    /* margin-top: 2rem; */
     position: absolute;
     display: flex;
     justify-content: center;
@@ -198,7 +176,6 @@ body {
     opacity: 0;
     transform: all .5s;
     gap: 1rem;
-    /* margin-bottom: 3rem; */
     bottom: 1rem;
 }
 
@@ -232,13 +209,11 @@ body {
 
 .plant-edit .plant-edit-button:hover {
     cursor: pointer;
-    /* scale button in width and height by 20% */
     transform: scale(1.2);
 }
 
 .plant-edit .plant-delete-button:hover {
     cursor: pointer;
-    /* scale button in width and height by 20% */
     transform: scale(1.2);
 }
 
@@ -251,8 +226,6 @@ body {
     width: 100%;
     height: 100%;
     z-index: 12;
-    /* top: 0px; */
-    /* animation: overlaySlideIn .5s forwards; */
     animation-duration: .5s;
     animation-timing-function: ease;
     padding: 2rem;
@@ -269,7 +242,6 @@ body {
 }
 
 .card-edit-overlay .edit-form label {
-    /* font-size: 1.5rem; */
     font-weight: bold;
     color: var(--primary);
     background-color: var(--secondary);
@@ -278,7 +250,6 @@ body {
 .card-edit-overlay .edit-form input {
     background: rgb(75, 75, 75);
     color: rgb(255, 255, 255);
-    /* font-weight: bold; */
     border: 1px solid var(--secondary);
     border-radius: 10px;
     padding: .5rem;
@@ -314,7 +285,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* padding: .5rem; */
     font-size: 1.5rem;
     cursor: pointer;
     border-radius: 50%;
@@ -353,10 +323,7 @@ body {
 
 .form-group {
     position: relative;
-    /* border: 2px solid; */
     margin: 10px;
-    /* border-radius: 15px; */
-    /* margin-top: 20px; */
 }
 
 .form-group>label {
@@ -369,7 +336,6 @@ body {
     font-size: .8rem;
     max-height: 1.5rem;
     max-width: auto;
-    /* border: unset; */
 }
 
 .form-group>input {
